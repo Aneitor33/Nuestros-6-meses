@@ -383,10 +383,12 @@ function openLetter() {
 
 /* ---------- Música propia: musica.mp3 en la misma carpeta ---------- */
 const bgMusic = document.getElementById('bg-music');
+bgMusic.addEventListener('loadedmetadata', function () { bgMusic.currentTime = 3; });
 let musicOn = true;
 
 function startMusic() {
   bgMusic.volume = 0.6;
+  bgMusic.currentTime = 3; // la canción empieza en el segundo 3
   bgMusic.play().catch(function () {
     // Si el navegador bloquea el autoplay, la música arranca con el próximo toque
     var resume = function () {
