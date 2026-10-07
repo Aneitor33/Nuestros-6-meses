@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💗 Felices 6 Meses, María Fernanda 💗</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cinzel:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --vino-oscuro: #3d0e14;
+  --vino: #722f37;
+  --vino-claro: #a34a56;
+  --vino-rosa: #c9747f;
+  --crema: #fff5f2;
+  --oro-rosa: #e8b4b8;
+  --glass: rgba(255, 240, 242, 0.25);
+  --glass-borde: rgba(255, 235, 238, 0.4);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--crema);
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 10%, rgba(163, 74, 86, 0.55), transparent 60%),
+    radial-gradient(ellipse 70% 55% at 85% 85%, rgba(114, 47, 55, 0.65), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 60% 40%, rgba(201, 116, 127, 0.25), transparent 65%),
+    linear-gradient(160deg, #2b080d 0%, var(--vino-oscuro) 45%, #1c0509 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ---------- CORAZONES FLOTANTES DE FONDO ---------- */
+.bg-heart {
+  position: fixed;
+  bottom: -40px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  animation: floatUp linear forwards;
+  filter: blur(0.4px);
+}
+@keyframes floatUp {
+  0%   { transform: translateY(0) scale(0.6) rotate(0deg);   opacity: 0; }
+  15%  { opacity: 0.5; }
+  85%  { opacity: 0.35; }
+  100% { transform: translateY(-115vh) scale(1.15) rotate(25deg); opacity: 0; }
+}
+
+/* ---------- LLUVIA DE EMOJIS ---------- */
+.rain-drop {
+  position: fixed;
+  top: -8vh;
+  pointer-events: none;
+  z-index: 60;
+  animation: rainFall linear forwards;
+  will-change: transform;
+}
+@keyframes rainFall {
+  from { transform: translateY(0) rotate(0deg); }
+  to   { transform: translateY(118vh) rotate(340deg); }
+}
+
+/* ---------- PANTALLA DE APERTURA ---------- */
+#intro-overlay {
+  position: fixed; inset: 0;
+  z-index: 3000;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  text-align: center;
+  padding: 24px;
+  background:
+    radial-gradient(ellipse 90% 65% at 50% 0%, rgba(163, 74, 86, 0.5), transparent 65%),
+    linear-gradient(165deg, #2b080d 0%, var(--vino-oscuro) 55%, #160307 100%);
+  transition: opacity 1.2s ease;
+}
+
+.intro-script {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(1.8em, 5vw, 2.6em);
+  color: var(--oro-rosa);
+  margin-bottom: 14px;
+  animation: fadeDown 1.4s ease both;
+}
+
+.intro-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2em, 7vw, 4.2em);
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  background: linear-gradient(45deg, #e8b4b8, #fff0f2, #d98e96, #e8b4b8);
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine 6s linear infinite, fadeDown 1.4s 0.25s ease both;
+  margin-bottom: 6px;
+}
+
+.meses-badge {
+  display: inline-block;
+  margin: 18px 0 22px;
+  padding: 10px 34px;
+  border: 1px solid var(--glass-borde);
+  border-radius: 60px;
+  background: var(--glass);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  font-family: 'Cinzel', serif;
+  font-size: 1em;
+  letter-spacing: 6px;
+  color: var(--oro-rosa);
+  animation: fadeDown 1.4s 0.45s ease both, pulseGlow 3s ease-in-out infinite;
+}
+
+.intro-sub {
+  font-size: clamp(1.15em, 3vw, 1.5em);
+  font-style: italic;
+  color: rgba(255, 240, 242, 0.85);
+  max-width: 620px;
+  line-height: 1.7;
+  animation: fadeDown 1.4s 0.65s ease both;
+}
+
+.btn-open {
+  margin-top: 40px;
+  padding: 16px 52px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5em;
+  color: #fff;
+  background: linear-gradient(45deg, var(--vino-claro), var(--vino-rosa), var(--vino-claro));
+  background-size: 200% auto;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 60px;
+  cursor: pointer;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255,255,255,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeDown 1.4s 0.85s ease both, pulse 2.4s ease-in-out infinite;
+}
+.btn-open:hover {
+  transform: scale(1.06);
+  box-shadow: 0 16px 45px rgba(163, 74, 86, 0.55), inset 0 1px 0 rgba(255,255,255,0.4);
+}
+
+@keyframes shine { to { background-position: 250% center; } }
+@keyframes fadeDown { from { opacity: 0; transform: translateY(-22px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.045); } }
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 18px rgba(201,116,127,0.25); }
+  50%      { box-shadow: 0 0 34px rgba(201,116,127,0.5); }
+}
+
+/* ---------- CONTENIDO PRINCIPAL ---------- */
+#main-content {
+  display: none;
+  opacity: 0;
+  transition: opacity 1.8s ease;
+  position: relative;
+  z-index: 10;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 60px 20px 40px;
+}
+
+.letter-header { text-align: center; padding: 40px 10px 30px; }
+
+.letter-header .script-name {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(2.6em, 7vw, 4em);
+  color: var(--oro-rosa);
+  text-shadow: 0 4px 24px rgba(201, 116, 127, 0.45);
+}
+
+.letter-header .fecha {
+  font-family: 'Cinzel', serif;
+  letter-spacing: 5px;
+  font-size: 0.85em;
+  color: rgba(232, 180, 184, 0.75);
+  margin-top: 14px;
+}
+
+/* Tarjeta de cristal líquido al 25% */
+.glass-card {
+  background: var(--glass);
+  backdrop-filter: blur(20px) saturate(1.3);
+  -webkit-backdrop-filter: blur(20px) saturate(1.3);
+  border: 1px solid var(--glass-borde);
+  border-radius: 30px;
+  padding: clamp(28px, 6vw, 58px);
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.08);
+  margin-bottom: 34px;
+  position: relative;
+  overflow: hidden;
+}
+.glass-card::before {
+  content: "";
+  position: absolute;
+  top: -60%; left: -30%;
+  width: 70%; height: 120%;
+  background: linear-gradient(105deg, transparent, rgba(255,255,255,0.13), transparent);
+  transform: rotate(12deg);
+  pointer-events: none;
+}
+
+.glass-card p {
+  font-size: clamp(1.18em, 2.6vw, 1.38em);
+  line-height: 1.95;
+  text-align: justify;
+  margin-bottom: 1.35em;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+}
+.glass-card p:last-child { margin-bottom: 0; }
+
+.divider {
+  display: flex; align-items: center; justify-content: center;
+  gap: 16px; margin: 4px 0 30px;
+  color: var(--oro-rosa); font-size: 1.1em;
+}
+.divider::before, .divider::after {
+  content: ""; flex: 1; max-width: 160px; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(232,180,184,0.6), transparent);
+}
+
+.pull-quote {
+  font-family: 'Dancing Script', cursive !important;
+  font-size: clamp(1.7em, 4.5vw, 2.3em) !important;
+  text-align: center !important;
+  color: #ffd9dd;
+  text-shadow: 0 3px 18px rgba(201, 116, 127, 0.6) !important;
+  padding: 10px 0 6px;
+}
+
+.cierre {
+  text-align: center !important;
+  font-size: clamp(1.3em, 3vw, 1.55em) !important;
+}
+
+.firma {
+  text-align: center;
+  padding: 20px 10px 60px;
+}
+.firma .de {
+  font-style: italic;
+  font-size: 1.25em;
+  color: rgba(255, 240, 242, 0.8);
+}
+.firma .nombre {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(2.6em, 7vw, 3.8em);
+  color: var(--oro-rosa);
+  margin-top: 6px;
+  text-shadow: 0 4px 26px rgba(201, 116, 127, 0.55);
+}
+
+/* Botón flotante de música */
+#music-btn {
+  position: fixed;
+  bottom: 22px; right: 22px;
+  z-index: 2000;
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  border: 1px solid var(--glass-borde);
+  background: var(--glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  color: var(--crema);
+  font-size: 1.4em;
+  cursor: pointer;
+  display: none;
+  align-items: center; justify-content: center;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.45);
+  transition: transform 0.25s ease;
+}
+#music-btn:hover { transform: scale(1.12); }
+
+@media (max-width: 560px) {
+  .glass-card { border-radius: 22px; }
+  .glass-card p { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ PANTALLA DE APERTURA ============ -->
+<div id="intro-overlay">
+  <div class="intro-script">Te amo mucho, mi cielito 💗</div>
+  <div class="intro-title">María Fernanda</div>
+  <div class="meses-badge">✦ 6 MESES JUNTOS ✦</div>
+  <div class="intro-sub">Esto solo es el comienzo de nuestra historia.<br>Aún nos queda mucho por vivir y pasar juntos.</div>
+  <button class="btn-open" onclick="openLetter()">Abrir nuestra carta 💌</button>
+</div>
+
+<button id="music-btn" onclick="toggleMusic()" title="Música">🎵</button>
+
+<audio id="bg-music" loop preload="auto">
+  <source src="musica.mp3" type="audio/mpeg">
+  Tu navegador no soporta audio.
+</audio>
+
+<!-- ============ CARTA ============ -->
+<div id="main-content">
+  <div class="letter-header">
+    <div class="script-name">Para ti, mi cielito lindo 💗</div>
+    <div class="fecha">FELICES 6 MESES · MARÍA FERNANDA</div>
+  </div>
+
+  <div class="glass-card">
+    <p>Hoy hacemos 6 meses y aún nos faltan muchos meses y años juntos. Sé que no es la gran cosa esto, pero quería decirte todo lo que he sentido por ti y demostrarte el amor que siento. A pesar de todo lo acontecido estos meses seguimos juntos, quizás más distanciados o más unidos que nunca.</p>
+    <p>Sé que a veces puedes dudar de mí y lo entiendo, puede que pienses que solo estoy por la intimidad, y la verdad es que empezó siendo así, pero acabé envuelto en tu encanto, tu sonrisa y tu manera de ser. La verdad es que eres una mujer increíble y lo que siento ya no tiene nada que ver con eso.</p>
+    <p>Sé que ha sido difícil para ti y para mí. No hemos tenido desde hace mucho un buen contacto como solíamos tener, han habido silencios que a los dos nos pesaron. Pero aun así el amor que siento por ti no se desvanece ni lo hará, y eso me hace ver que esto no es un amor a distancia para pasar el tiempo. En los momentos más complicados, cuando más difícil fue llegar hasta ti, ahí fue cuando más claro lo tuve.</p>
+    <div class="divider">💗</div>
+    <p>Extraño las llamadas que teníamos, extraño los días que jugábamos juntos y extraño tu sonrisa. Te extraño mucho mi vida, y cada día que pasa sin estar ahí contigo te extraño y te pienso más. Te hiciste parte de mi vida y ya no puedo sacarte de mi corazón ni de mi cabeza.</p>
+    <p>No sabes lo que significa para mí ver el teléfono y ver que tengo un mensaje tuyo, es un sentimiento tan difícil de expresar que no sé cómo decírtelo. Me encanta cuando me cuentas tus cosas en llamada o cuando estás encerrada maquillándote.</p>
+    <p>Eres la luz que ilumina mi oscuridad, eres el sol que ilumina mi mundo, eres la felicidad y la alegría que activa mis sentidos. Cuando no estás, mi mundo se apaga un poco. Y por eso deseo de corazón que todo en tu vida se resuelva: quiero verte bien y tranquila, quiero volver a ver a esa niña tan linda y hermosa que hace que mi mundo negro se vuelva rosa y cálido.</p>
+    <div class="divider">🌹</div>
+    <p>Sé que a veces es complicado estar conmigo porque soy muy muy intenso, y a veces te pido más tiempo y atención de los que puedes darme, pero es que cuando amo, amo con todo. Y aun así aquí estamos. Lo que hemos aguantado estos meses demuestra lo fuerte que es lo nuestro, porque otros no aguantarían tanto como lo estamos haciendo nosotros.</p>
+    <p>Quiero seguir contigo y permanecer a tu lado en lo bueno y en lo malo. Quiero que cuentes conmigo como tu pareja, tu amor y tu amigo. Quiero que confíes en mí y que me dejes acompañarte, contarme tus problemas para apoyarte emocionalmente, aunque sea con solo escucharte. No tienes que pasar las cosas sola: estoy aquí.</p>
+    <p class="pull-quote">Somos dos, pero juntos somos solo uno.</p>
+    <p>Quiero que nuestra relación sea más fuerte cada día que pasa y sueño con el día en que podamos estar juntos, el uno para el otro, porque el verdadero significado del amor y de estar juntos es la unión de dos seres que, a pesar de todo, están juntos, aunque todo esté en contra.</p>
+    <div class="divider">💍</div>
+    <p>Eres muy especial, eres todo lo que deseo en este mundo, eres el amor de mi vida y pase lo que pase, incluso en los días de silencio, aquí voy a estar.</p>
+    <p class="cierre">Te amo muchísimo mi amor.<br>Felices 6 meses 💗</p>
+  </div>
+
+  <div class="firma">
+    <div class="de">Con todo mi amor, para siempre tuyo</div>
+    <div class="nombre">— Ilyass ❤️</div>
+  </div>
+</div>
+
+<script>
+const EMOJIS = ['💕','💗','✨','❤️','🎀','🩷','💖','🫧','💘','🌹','🌸','💍','🌷'];
+const HEARTS_BG = ['💗','💕','🌸','✨','🫧'];
+let opened = false;
+
+function spawnBgHeart() {
+  const h = document.createElement('div');
+  h.className = 'bg-heart';
+  h.textContent = HEARTS_BG[Math.floor(Math.random() * HEARTS_BG.length)];
+  h.style.left = Math.random() * 96 + 'vw';
+  h.style.fontSize = (Math.random() * 1.4 + 0.8) + 'em';
+  h.style.animationDuration = (Math.random() * 8 + 10) + 's';
+  document.body.appendChild(h);
+  setTimeout(() => h.remove(), 19000);
+}
+setInterval(spawnBgHeart, 1400);
+
+function spawnRain() {
+  const d = document.createElement('div');
+  d.className = 'rain-drop';
+  d.textContent = EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
+  d.style.left = Math.random() * 94 + 'vw';
+  d.style.fontSize = (Math.random() * 1.3 + 1) + 'em';
+  d.style.animationDuration = (Math.random() * 3 + 5) + 's';
+  d.style.opacity = (Math.random() * 0.45 + 0.55);
+  d.style.zIndex = Math.random() > 0.6 ? '70' : '5';
+  document.body.appendChild(d);
+  setTimeout(() => d.remove(), 9000);
+}
+
+function openLetter() {
+  if (opened) return;
+  opened = true;
+  const overlay = document.getElementById('intro-overlay');
+  overlay.style.opacity = '0';
+  setTimeout(() => {
+    overlay.style.display = 'none';
+    document.getElementById('main-content').style.display = 'block';
+    requestAnimationFrame(() => {
+      document.getElementById('main-content').style.opacity = '1';
+      document.getElementById('music-btn').style.display = 'flex';
+    });
+    startMusic();
+    setInterval(spawnRain, 320);
+  }, 1200);
+}
+
+/* ---------- Música propia: musica.mp3 en la misma carpeta ---------- */
+const bgMusic = document.getElementById('bg-music');
+let musicOn = true;
+
+function startMusic() {
+  bgMusic.volume = 0.6;
+  bgMusic.play().catch(function () {
+    // Si el navegador bloquea el autoplay, la música arranca con el próximo toque
+    var resume = function () {
+      if (musicOn) bgMusic.play();
+      document.removeEventListener('click', resume);
+    };
+    document.addEventListener('click', resume);
+  });
+}
+
+function toggleMusic() {
+  musicOn = !musicOn;
+  document.getElementById('music-btn').textContent = musicOn ? '🎵' : '⏸';
+  if (musicOn) bgMusic.play();
+  else bgMusic.pause();
+}
+</script>
+</body>
+</html>
